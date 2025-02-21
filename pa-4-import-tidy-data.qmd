@@ -88,7 +88,8 @@ youth <- read_csv("data-raw/YRBS2015.csv", skip = 1, na = "N/A",
         `Breakfast eating` = "n",
         `Physical activity >= 5 days` = "n",
         `Television watching` = "c",
-        `Sports team participation` = "n"
+        `Sports team participation` = "n",
+        .default = col_skip()
                     
                     
                     ))
