@@ -71,8 +71,28 @@ Go ahead and read in the data, calling it `youth`. What do you notice?
 #| label: read-data
 #| eval: false
 
-youth <- read_csv("data-raw/YRBS2015.csv", skip = 1, na = "N/A")
-head(youth)
+youth <- read_csv("data-raw/YRBS2015.csv", skip = 1, na = "N/A",
+                  col_types = list(
+                    AgeCat = col_number(),
+                    Grade = col_number(),
+                    Perceptionofweight = col_factor(levels = c("Very underweight","Slightly underweight", "About the right weight", "Slightly overweight", "Very overweight" )),
+        `Gender` = "c",
+        `Height in meters` = col_number(),
+        `Weight in kilograms`= "n",
+        `Body Mass Index` = "n",
+        `BMI percentile` = "n",
+        `Fruit eating` = "c",
+        `Salad eating` = "c",
+        `Other vegetable eating` = "c",
+        `Soda drinking` = "c",
+        `Breakfast eating` = "n",
+        `Physical activity >= 5 days` = "n",
+        `Television watching` = "c",
+        `Sports team participation` = "n"
+                    
+                    
+                    ))
+tail(youth) 
 ```
 
 Describe some of the issues you notice in the data:
