@@ -147,12 +147,14 @@ Now that the data is clean, you can add `eval: false` to the prior code chunks a
 
 ```{r}
 #| label: read-clean-data
-youth_clean <- 
+#| eval: false
+youth <- janitor::clean_names(youth)
+youth_clean <- write_csv(youth, file = "data-clean/youth_clean.csv")
 ```
 
 Why do we keep the code for the data cleaning but set the code chunks to `eval: false`?
 
-> Insert Answer Here
+> We do this to make the program more efficient and to not waste resources on cleaning the data everytime we want to try and run the code.
 
 <!-- Change roles (Developer becomes Coder)! -->
 
@@ -174,11 +176,11 @@ youth_clean |>
 
 What do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?
 
-> Insert Answer Here
+> Difficulty concentrating and how well they speak English are the most common variables to be missing in the data. Largest number of drinks, oral health care, sexual identity, how well speak English, and difficulty concentrating are the most common to be missing together.
 
 How does the missingness of the data impact what variables you might choose to analyze? Why?
 
-> Insert Answer Here
+> We are less likely to analyze variables that are commonly missing because certain demographics might be unaccounted for in our information, leading to strewed data compared to actual numbers.
 
 <!-- Change roles (Developer becomes Coder)! -->
 
